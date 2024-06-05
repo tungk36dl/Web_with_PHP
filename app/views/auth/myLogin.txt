@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form Validator</title>
+    <link rel="stylesheet" href="/layout/myCss/login.css">
+</head>
+
+<body>
+    <div class="container">
+    <?php
+if (isset($msg)) {
+    echo "<br> $msg </p>";
+}
+if (isset($error)) {
+    echo "<br> $error </p>";
+}
+?>
+
+<?php
+if ($_SESSION['userinfo'] ?? '') {
+    echo ("<br/> <a href='/logout'> Đăng xuất </a>");
+} else {
+
+
+?>
+        <form action="" method="post" class="form-horizontal">
+            <h1>Login Form</h1>
+            <div class="form-control ">
+                <input name="username" id="username" type="text" placeholder="Username">
+                <small></small>
+                <span class=""></span>
+            </div>
+            <div  class="form-control ">
+                <input name="password" id="password" type="password" placeholder="Password">
+                <small></small>
+                <span class=""></span>
+            </div>
+            <button type="submit" class="btn-submit">Log In</button>
+
+            <div class="signup-link">
+                not a member? <a href="/registration.php">Sign Up</a>
+            </div>
+        </form>
+        
+        <?php
+    }
+        ?>
+    </div>
+
+</body>
+
+<script src="/layout/myJs/login.js"></script>
+
+</html>
